@@ -1,3 +1,4 @@
+from aikido_zen import set_user
 from apis.auth.schemas import TokenData
 from apis.auth.utils.utils import get_user_by_username
 from config import Settings
@@ -40,4 +41,5 @@ async def get_current_user(
     user = get_user_by_username(db, username=token_data.username)
     if user is None:
         raise credentials_exception
+    set_user({"id": str(user.id), "name": user.username})
     return user
