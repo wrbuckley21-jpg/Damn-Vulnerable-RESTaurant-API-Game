@@ -1,3 +1,7 @@
+import aikido_zen
+
+aikido_zen.protect()
+
 from init import load_initial_data
 from init_app import init_app
 

@@ -1,3 +1,4 @@
+from aikido_zen.middleware import AikidoFastAPIMiddleware
 from apis.router import api_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,6 +18,7 @@ def init_app():
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(AikidoFastAPIMiddleware)
     app.include_router(api_router)
 
     return app
